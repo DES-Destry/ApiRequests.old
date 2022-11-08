@@ -8,6 +8,14 @@
         <Company>Destry.Unimaster</Company>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
         <FileVersion>1.0.0.0</FileVersion>
+        <Title>Http implementation</Title>
+        <Description>Base classes and interfaces to build requests via HTTP to external APIs faster.</Description>
+        <Copyright>2022</Copyright>
+        <PackageLicenseUrl>MIT</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
+        <RepositoryType>GitHub</RepositoryType>
+        <PackageTags>API, Requests, Http</PackageTags>
+        <PackageReleaseNotes>First release version.</PackageReleaseNotes>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -20,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="api-interface.png" Pack="true" PackagePath=""/>
+        <None Include="api-interface.png" Pack="true" PackagePath="" />
     </ItemGroup>
 
 </Project>

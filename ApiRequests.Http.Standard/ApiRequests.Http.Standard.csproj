@@ -8,6 +8,14 @@
         <Company>Destry.Unimaster</Company>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
         <FileVersion>1.0.0.0</FileVersion>
+        <Title>Http Standard implementation</Title>
+        <Description>Base classes and interfaces to build requests via HTTP to external APIs faster. This is standard implementation via HttpClient. Based on ApiRequests.Http you can make another implementation instead of via HttpClient</Description>
+        <Copyright>2022</Copyright>
+        <PackageLicenseUrl>MIT</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
+        <RepositoryType>GitHub</RepositoryType>
+        <PackageTags>API, Requests, Http, HttpClient</PackageTags>
+        <PackageReleaseNotes>First release.</PackageReleaseNotes>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
