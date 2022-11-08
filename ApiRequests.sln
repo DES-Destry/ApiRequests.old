@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiRequests.Http", "ApiRequests.Http\ApiRequests.Http.csproj", "{69A21816-6FA8-4729-8D8B-18A12A879F8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiRequests.Http.Standard", "ApiRequests.Http.Standard\ApiRequests.Http.Standard.csproj", "{EEB8E04A-DDAD-468A-81F5-566A0FD28523}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiRequests.Http.Unity", "ApiRequests.Http.Unity\ApiRequests.Http.Unity.csproj", "{59DAAA42-3CF7-4B2A-A815-78724BF4456A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69A21816-6FA8-4729-8D8B-18A12A879F8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69A21816-6FA8-4729-8D8B-18A12A879F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69A21816-6FA8-4729-8D8B-18A12A879F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69A21816-6FA8-4729-8D8B-18A12A879F8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEB8E04A-DDAD-468A-81F5-566A0FD28523}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB8E04A-DDAD-468A-81F5-566A0FD28523}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEB8E04A-DDAD-468A-81F5-566A0FD28523}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB8E04A-DDAD-468A-81F5-566A0FD28523}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59DAAA42-3CF7-4B2A-A815-78724BF4456A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59DAAA42-3CF7-4B2A-A815-78724BF4456A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59DAAA42-3CF7-4B2A-A815-78724BF4456A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59DAAA42-3CF7-4B2A-A815-78724BF4456A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
