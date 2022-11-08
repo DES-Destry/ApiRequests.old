@@ -4,7 +4,7 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{59DAAA42-3CF7-4B2A-A815-78724BF4456A}</ProjectGuid>
+        <ProjectGuid>{FC1E47A5-CC03-41E8-A43C-6A211F9BB469}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>ApiRequests.Http.Unity</RootNamespace>
@@ -30,11 +30,10 @@
         <DefineConstants>TRACE</DefineConstants>
         <ErrorReport>prompt</ErrorReport>
         <WarningLevel>4</WarningLevel>
-        <DocumentationFile>bin\Release\ApiRequests.Http.Unity.xml</DocumentationFile>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-          <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+        <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+          <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
@@ -51,7 +50,7 @@
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\ApiRequests.Http\ApiRequests.Http.csproj">
-        <Project>{69a21816-6fa8-4729-8d8b-18a12a879f8d}</Project>
+        <Project>{ba7d499c-4009-4015-b1b9-d1126309fbbb}</Project>
         <Name>ApiRequests.Http</Name>
       </ProjectReference>
     </ItemGroup>
