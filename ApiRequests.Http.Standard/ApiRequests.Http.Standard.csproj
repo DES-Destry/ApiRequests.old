@@ -16,6 +16,7 @@
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>API, Requests, Http, HttpClient</PackageTags>
         <PackageReleaseNotes>First release.</PackageReleaseNotes>
+        <PackageVersion>1.0.1</PackageVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">

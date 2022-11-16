@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <TargetFrameworks>net6.0;netcoreapp3.1;netstandard2.0;netstandard2.1</TargetFrameworks>
+        <PackageId>ApiRequests.Http.Extensions</PackageId>
+        <Title>ApiRequests.Http Dependency Injection</Title>
+        <Authors>Destry.Unimaster</Authors>
+        <Description>Dependency Injection for basic HTTP controllers to use in ASP.NET projects.</Description>
+        <Copyright>2022</Copyright>
+        <PackageLicenseUrl>MIT</PackageLicenseUrl>
+        <PackageIcon>api-interface.png</PackageIcon>
+        <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
+        <RepositoryType>GitHub</RepositoryType>
+        <PackageTags>API, Requests, Http, DI, Extensions, ASP.NET</PackageTags>
+        <PackageReleaseNotes>First release version.</PackageReleaseNotes>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\ApiRequests.Http.Extensions.xml</DocumentationFile>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="ApiRequests.Http" Version="1.0.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="api-interface.png" Pack="true" PackagePath="" />
+    </ItemGroup>
+
+</Project>
