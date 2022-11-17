@@ -13,8 +13,9 @@
         <PackageIcon>api-interface.png</PackageIcon>
         <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
-        <PackageTags>API, Requests, Http, DI, Extensions, ASP.NET</PackageTags>
-        <PackageReleaseNotes>First release version.</PackageReleaseNotes>
+        <PackageTags>API Requests Http DI Extensions ASP.NET</PackageTags>
+        <PackageReleaseNotes>- Add refreshable controller injection.
+- setupAction for dependency injection now is nullable.</PackageReleaseNotes>
         <PackageVersion>1.1.0</PackageVersion>
     </PropertyGroup>
 
