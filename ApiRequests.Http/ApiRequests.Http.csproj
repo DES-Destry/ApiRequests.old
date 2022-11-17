@@ -14,9 +14,10 @@
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
-        <PackageTags>API, Requests, Http</PackageTags>
+        <PackageTags>API Requests Http</PackageTags>
         <PackageReleaseNotes>First release version.</PackageReleaseNotes>
-        <PackageVersion>1.0.1</PackageVersion>
+        <PackageVersion>1.0.0</PackageVersion>
+        <Authors>Destry.Unimaster</Authors>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
