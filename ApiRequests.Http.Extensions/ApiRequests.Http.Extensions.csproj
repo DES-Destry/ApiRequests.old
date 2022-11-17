@@ -15,6 +15,7 @@
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>API, Requests, Http, DI, Extensions, ASP.NET</PackageTags>
         <PackageReleaseNotes>First release version.</PackageReleaseNotes>
+        <PackageVersion>1.1.0</PackageVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
