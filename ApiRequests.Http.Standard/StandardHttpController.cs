@@ -133,12 +133,16 @@ namespace ApiRequests.Http.Standard
             return await response.Content.ReadFromJsonAsync<TO>();
         }
 
+        // TODO resource can be nullable
         private Uri BuildUri(string resource)
         {
+            // TODO: use ??=
             if (resource == null)
                 resource = string.Empty;
 
             var stringBuilder = new StringBuilder();
+            
+            // TODO: check configuration and tell user, that environment is important to set!!!
             stringBuilder.Append(Configuration.BaseUrl);
             stringBuilder.Append(resource);
 
