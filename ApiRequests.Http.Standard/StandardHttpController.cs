@@ -178,7 +178,7 @@ namespace ApiRequests.Http.Standard
 
             if (Body != null && method != HttpMethod.Get)
                 message.Content = JsonContent.Create(Body);
-
+            
             return message;
         }
     }

@@ -8,6 +8,7 @@ namespace ApiRequests.Http.Controller
     {
         TConf Configuration { get; }
         
+        // TODO: AddQueryArray(string key, IEnumerable<string> elements)
         void AddQueryParameter(string key, string value);
         void AddQueryParameters(IEnumerable<KeyValuePair<string, string>> queryParameters);
         void SetQueryParameters(IEnumerable<KeyValuePair<string, string>> queryParameters);
