@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiRequests.Http.Unity", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiRequests.Http.Extensions", "ApiRequests.Http.Extensions\ApiRequests.Http.Extensions.csproj", "{DAE05400-B76B-4624-94AD-147345F1E276}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiRequests", "ApiRequests\ApiRequests.csproj", "{3C807590-5ACB-49CC-A019-B13E36330551}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{DAE05400-B76B-4624-94AD-147345F1E276}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAE05400-B76B-4624-94AD-147345F1E276}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAE05400-B76B-4624-94AD-147345F1E276}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C807590-5ACB-49CC-A019-B13E36330551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C807590-5ACB-49CC-A019-B13E36330551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C807590-5ACB-49CC-A019-B13E36330551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C807590-5ACB-49CC-A019-B13E36330551}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

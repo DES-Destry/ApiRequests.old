@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <TargetFrameworks>net45;net472;net48;net6.0;netcoreapp3.1;netstandard2.0;netstandard2.1</TargetFrameworks>
+        <Title>Basic classes for API requests</Title>
+        <Description>Base classes and interfaces to build requests to external APIs faster via any protocol. Concrete protocols requires additional package with implementation.</Description>
+        <Copyright>2022</Copyright>
+        <PackageLicenseUrl>MIT</PackageLicenseUrl>
+        <PackageIcon>api-interface.png</PackageIcon>
+        <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
+        <RepositoryType>GitHub</RepositoryType>
+        <PackageTags>API Requests</PackageTags>
+        <PackageReleaseNotes>First release version.</PackageReleaseNotes>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <FileVersion>1.0.0.0</FileVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DocumentationFile>bin\Release\ApiRequests.xml</DocumentationFile>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="api-interface.png" Pack="true" PackagePath="" />
+    </ItemGroup>
+
+</Project>
