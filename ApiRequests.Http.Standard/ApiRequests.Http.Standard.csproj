@@ -26,10 +26,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ApiRequests.Http\ApiRequests.Http.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Reference Include="System.Net.Http" Condition="'$(TargetFramework)' == 'net45' OR '$(TargetFramework)' == 'net48' OR '$(TargetFramework)' == 'net472'" />
     </ItemGroup>
 

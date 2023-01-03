@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using ApiRequests.Http.Configuration;
+using ApiRequests.Configuration;
 using ApiRequests.Http.Controller;
 
 namespace ApiRequests.Http.Addons
