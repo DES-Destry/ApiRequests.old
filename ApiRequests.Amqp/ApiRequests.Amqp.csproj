@@ -13,8 +13,8 @@
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>API Requests AMQP RabbitMQ Queues Exhanges</PackageTags>
         <PackageReleaseNotes>- Add publish batch method.</PackageReleaseNotes>
-        <AssemblyVersion>1.0.1.0</AssemblyVersion>
-        <FileVersion>1.0.1.0</FileVersion>
+        <AssemblyVersion>1.0.3.0</AssemblyVersion>
+        <FileVersion>1.0.3.0</FileVersion>
         <TargetFrameworks>net472;net48;net6.0;netcoreapp3.1;netstandard2.0;netstandard2.1</TargetFrameworks>
         <Version>1.0.3</Version>
     </PropertyGroup>
