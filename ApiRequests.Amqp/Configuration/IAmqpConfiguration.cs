@@ -1,10 +1,11 @@
 using ApiRequests.Configuration;
 using RabbitMQ.Client;
 
-namespace ApiRequests.Amqp.Configuration;
-
-public interface IAmqpConfiguration : IConfiguration
+namespace ApiRequests.Amqp.Configuration
 {
-    public string Exchange { get; set; }
-    public IBasicProperties BasicProperties { get; set; }
+    public interface IAmqpConfiguration : IConfiguration
+    {
+        string Exchange { get; set; }
+        IBasicProperties BasicProperties { get; set; }
+    }   
 }

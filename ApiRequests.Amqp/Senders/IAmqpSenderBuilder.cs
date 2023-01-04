@@ -1,8 +1,9 @@
 using ApiRequests.Amqp.Configuration;
 
-namespace ApiRequests.Amqp.Senders;
-
-public interface IAmqpSenderBuilder<out TConf> where TConf : IAmqpConfiguration
+namespace ApiRequests.Amqp.Senders
 {
-    IAmqpSender<TConf> Build();
+    public interface IAmqpSenderBuilder<out TConf> where TConf : IAmqpConfiguration
+    {
+        IAmqpSender<TConf> Build();
+    }   
 }
