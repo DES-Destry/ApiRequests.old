@@ -45,6 +45,21 @@ namespace ApiRequests.Amqp.Standard
             }
         }
 
+        public void PublishBatch(string routingKey)
+        {
+            using (var amqpConnection = AmqpConnectionFactory.CreateConnection())
+            {
+                using (var amqpChannel = amqpConnection.CreateModel())
+                {
+                    foreach (var message in Messages)
+                    {
+                        var body = BuildBody(message);
+                        amqpChannel.BasicPublish(Exchange, routingKey, basicProperties: Properties, body: body);   
+                    }
+                }   
+            }
+        }
+
         private ReadOnlyMemory<byte> BuildBody(object message)
         {
             var jsonMessage = JsonSerializer.Serialize(message ?? "null");
