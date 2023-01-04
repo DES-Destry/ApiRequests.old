@@ -2,6 +2,6 @@ namespace ApiRequests.Configuration
 {
     public interface IConfiguration
     {
-        string BaseUrl { get; set; }
+        string BaseUrl { get; }
     }   
 }

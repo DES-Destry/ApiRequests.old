@@ -12,11 +12,11 @@
         <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>API Requests</PackageTags>
-        <PackageReleaseNotes>- Make IConfiguration as interface instead of class.</PackageReleaseNotes>
-        <AssemblyVersion>1.0.1.0</AssemblyVersion>
-        <FileVersion>1.0.1.0</FileVersion>
+        <PackageReleaseNotes>- Make BaseUrl readonly.</PackageReleaseNotes>
+        <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <FileVersion>1.0.2.0</FileVersion>
         <Authors>Destry.Unimaster</Authors>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
