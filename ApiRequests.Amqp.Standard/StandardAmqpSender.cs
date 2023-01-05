@@ -32,8 +32,8 @@ namespace ApiRequests.Amqp.Standard
         public void SetProperties(IBasicProperties properties) => Properties = properties;
         
         public void AddMessage(object message) => Messages.Add(message);
-        public void AddMessageRange(object[] messages) => Messages.AddRange(messages);
-        public void SetMessages(object[] messages) => Messages = messages.ToList();
+        public void AddMessageRange(IEnumerable<object> messages) => Messages.AddRange(messages);
+        public void SetMessages(IEnumerable<object> messages) => Messages = messages.ToList();
         public void RemoveMessage(Func<object, bool> removalCondition)
         {
             Messages = Messages.Where(message => !removalCondition.Invoke(message)).ToList();
