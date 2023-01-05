@@ -67,9 +67,9 @@ namespace ApiRequests.Amqp.Standard
         {
             return new
             {
-                Id = Guid.NewGuid().ToString(),
-                Pattern = routingKey,
-                Data = message,
+                id = Guid.NewGuid().ToString(),
+                pattern = routingKey,
+                data = message,
             };
         }
 
