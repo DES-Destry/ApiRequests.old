@@ -12,11 +12,11 @@
         <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>API Requests AMQP RabbitMQ Queues Exhanges</PackageTags>
-        <PackageReleaseNotes>- Use IEnumerable intead of arrays in collection manipulating methods.</PackageReleaseNotes>
-        <AssemblyVersion>1.1.1.0</AssemblyVersion>
-        <FileVersion>1.1.1.0</FileVersion>
+        <PackageReleaseNotes>- Add publishing via queues and routung keys at 1 time.</PackageReleaseNotes>
+        <AssemblyVersion>1.1.2.0</AssemblyVersion>
+        <FileVersion>1.1.2.0</FileVersion>
         <TargetFrameworks>net472;net48;net6.0;netcoreapp3.1;netstandard2.0;netstandard2.1</TargetFrameworks>
-        <Version>1.1.1</Version>
+        <Version>1.1.2</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
