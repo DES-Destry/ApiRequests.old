@@ -7,16 +7,16 @@
         <Title>Standard classes for AMQP requests</Title>
         <Authors>Destry.Unimaster</Authors>
         <Description>Implementations of base classes and interfaces to build requests to external APIs faster via AMQP.</Description>
-        <Copyright>2022</Copyright>
+        <Copyright>2023</Copyright>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <PackageIcon>api-interface.png</PackageIcon>
         <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>API Requests AMQP RabbitMQ Queues Exhanges</PackageTags>
-        <PackageReleaseNotes>- Add setter for configuration.</PackageReleaseNotes>
-        <AssemblyVersion>1.1.1.0</AssemblyVersion>
-        <FileVersion>1.1.1.0</FileVersion>
-        <Version>1.1.1</Version>
+        <PackageReleaseNotes>- Add message publishing via routing key.</PackageReleaseNotes>
+        <AssemblyVersion>1.1.2.0</AssemblyVersion>
+        <FileVersion>1.1.2.0</FileVersion>
+        <Version>1.1.2</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -29,7 +29,7 @@
     </ItemGroup>
     
     <ItemGroup>
-      <PackageReference Include="ApiRequests.Amqp" Version="1.1.1" />
+      <PackageReference Include="ApiRequests.Amqp" Version="1.1.2" />
     </ItemGroup>
 
 </Project>

@@ -43,13 +43,34 @@ namespace ApiRequests.Amqp.Standard
         public abstract void SetEnvironment(ServerEnvironment environment);
 
 
-        public void Publish(string routingKey)
+        public void Publish(string queue)
         {
             using var amqpConnection = AmqpConnectionFactory.CreateConnection();
             using var amqpChannel = amqpConnection.CreateModel();
             
             foreach (var body in Messages.Select(BuildBody))
-                amqpChannel.BasicPublish(Exchange, routingKey, basicProperties: Properties, body: body);
+                amqpChannel.BasicPublish(Exchange, queue, basicProperties: Properties, body: body);
+        }
+
+        public void Publish(string queue, string routingKey)
+        {
+            using var amqpConnection = AmqpConnectionFactory.CreateConnection();
+            using var amqpChannel = amqpConnection.CreateModel();
+
+            foreach (var body in Messages
+                         .Select(message => BuildRoutingMessage(message, routingKey))
+                         .Select(BuildBody))
+                amqpChannel.BasicPublish(Exchange, queue, basicProperties: Properties, body: body);
+        }
+
+        private object BuildRoutingMessage(object message, string routingKey)
+        {
+            return new
+            {
+                Id = Guid.NewGuid().ToString(),
+                Pattern = routingKey,
+                Data = message,
+            };
         }
 
         private ReadOnlyMemory<byte> BuildBody(object message)
