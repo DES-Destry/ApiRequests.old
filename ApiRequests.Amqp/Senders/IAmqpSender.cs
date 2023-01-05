@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using ApiRequests.Amqp.Configuration;
 using ApiRequests.Configuration;
 using RabbitMQ.Client;
@@ -12,8 +13,8 @@ namespace ApiRequests.Amqp.Senders
         void SetExchange(string exchange);
         void SetProperties(IBasicProperties properties);
         void AddMessage(object message);
-        void AddMessageRange(object[] message);
-        void SetMessages(object[] messages);
+        void AddMessageRange(IEnumerable<object> message);
+        void SetMessages(IEnumerable<object> messages);
         void RemoveMessage(Func<object, bool> removalCondition);
         void ClearMessages();
     
