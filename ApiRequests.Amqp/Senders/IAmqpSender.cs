@@ -11,6 +11,7 @@ namespace ApiRequests.Amqp.Senders
         void SetExchange(string exchange);
         void SetProperties(IBasicProperties properties);
         void SetMessage(object message);
+        void SetMessages(object[] messages);
     
         void SetEnvironment(ServerEnvironment environment);
 
