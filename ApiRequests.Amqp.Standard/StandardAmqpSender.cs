@@ -18,7 +18,7 @@ namespace ApiRequests.Amqp.Standard
         protected IBasicProperties Properties;
         protected List<object> Messages;
     
-        public abstract TConf Configuration { get; }
+        public abstract TConf Configuration { get; set; }
 
         protected StandardAmqpSender()
         {
