@@ -14,9 +14,9 @@
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>API Requests AMQP RabbitMQ Queues Exhanges</PackageTags>
         <PackageReleaseNotes>- Update dependencies.</PackageReleaseNotes>
-        <AssemblyVersion>1.0.1.0</AssemblyVersion>
-        <FileVersion>1.0.1.0</FileVersion>
-        <Version>1.0.1</Version>
+        <AssemblyVersion>1.0.2.0</AssemblyVersion>
+        <FileVersion>1.0.2.0</FileVersion>
+        <Version>1.0.2</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -29,7 +29,7 @@
     </ItemGroup>
     
     <ItemGroup>
-      <PackageReference Include="ApiRequests.Amqp" Version="1.0.4" />
+      <PackageReference Include="ApiRequests.Amqp" Version="1.0.5" />
     </ItemGroup>
 
 </Project>
