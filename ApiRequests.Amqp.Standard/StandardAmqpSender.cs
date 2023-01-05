@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.Json;
 using ApiRequests.Amqp.Configuration;
@@ -14,7 +16,7 @@ namespace ApiRequests.Amqp.Standard
         
         protected string Exchange;
         protected IBasicProperties Properties;
-        protected object[] Messages;
+        protected List<object> Messages;
     
         public abstract TConf Configuration { get; }
 
@@ -23,41 +25,31 @@ namespace ApiRequests.Amqp.Standard
             AmqpConnectionFactory = new ConnectionFactory();
 
             Exchange = string.Empty;
-            Messages = Array.Empty<object>();
+            Messages = new List<object>();
         }
 
         public void SetExchange(string exchange) => Exchange = exchange;
         public void SetProperties(IBasicProperties properties) => Properties = properties;
-        public void SetMessage(object message) => Messages[0] = message;
-        public void SetMessages(object[] messages) => Messages = messages;
+        
+        public void AddMessage(object message) => Messages.Add(message);
+        public void AddMessageRange(object[] messages) => Messages.AddRange(messages);
+        public void SetMessages(object[] messages) => Messages = messages.ToList();
+        public void RemoveMessage(Func<object, bool> removalCondition)
+        {
+            Messages = Messages.Where(message => !removalCondition.Invoke(message)).ToList();
+        }
+        public void ClearMessages() => Messages.Clear();
 
         public abstract void SetEnvironment(ServerEnvironment environment);
 
+
         public void Publish(string routingKey)
         {
-            using (var amqpConnection = AmqpConnectionFactory.CreateConnection())
-            {
-                using (var amqpChannel = amqpConnection.CreateModel())
-                {
-                    var body = BuildBody(Messages[0]);
-                    amqpChannel.BasicPublish(Exchange, routingKey, basicProperties: Properties, body: body);
-                }   
-            }
-        }
-
-        public void PublishBatch(string routingKey)
-        {
-            using (var amqpConnection = AmqpConnectionFactory.CreateConnection())
-            {
-                using (var amqpChannel = amqpConnection.CreateModel())
-                {
-                    foreach (var message in Messages)
-                    {
-                        var body = BuildBody(message);
-                        amqpChannel.BasicPublish(Exchange, routingKey, basicProperties: Properties, body: body);   
-                    }
-                }   
-            }
+            using var amqpConnection = AmqpConnectionFactory.CreateConnection();
+            using var amqpChannel = amqpConnection.CreateModel();
+            
+            foreach (var body in Messages.Select(BuildBody))
+                amqpChannel.BasicPublish(Exchange, routingKey, basicProperties: Properties, body: body);
         }
 
         private ReadOnlyMemory<byte> BuildBody(object message)

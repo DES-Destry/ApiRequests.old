@@ -13,10 +13,11 @@
         <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>API Requests AMQP RabbitMQ Queues Exhanges</PackageTags>
-        <PackageReleaseNotes>- Update dependencies.</PackageReleaseNotes>
-        <AssemblyVersion>1.0.2.0</AssemblyVersion>
-        <FileVersion>1.0.2.0</FileVersion>
-        <Version>1.0.2</Version>
+        <PackageReleaseNotes>- Remove PublishBatch method use common Publish instead.
+- Add more methods to modify messages collection.</PackageReleaseNotes>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <FileVersion>1.1.0.0</FileVersion>
+        <Version>1.1.0</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -29,7 +30,7 @@
     </ItemGroup>
     
     <ItemGroup>
-      <PackageReference Include="ApiRequests.Amqp" Version="1.0.5" />
+      <PackageReference Include="ApiRequests.Amqp" Version="1.1.0" />
     </ItemGroup>
 
 </Project>
