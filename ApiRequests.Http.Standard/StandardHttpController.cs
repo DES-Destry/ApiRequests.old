@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
-using ApiRequests.Http.Configuration;
+using ApiRequests.Configuration;
 using ApiRequests.Http.Controller;
 
 namespace ApiRequests.Http.Standard

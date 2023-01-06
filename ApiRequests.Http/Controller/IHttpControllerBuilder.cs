@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using ApiRequests.Http.Configuration;
+using ApiRequests.Configuration;
 
 namespace ApiRequests.Http.Controller
 {

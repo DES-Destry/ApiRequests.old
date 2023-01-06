@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <Title>Basic classes for AMQP requests</Title>
+        <Authors>Destry.Unimaster</Authors>
+        <Description>Base classes and interfaces to build requests to external APIs faster via AMQP.</Description>
+        <Copyright>2022</Copyright>
+        <PackageLicenseUrl>MIT</PackageLicenseUrl>
+        <PackageIcon>api-interface.png</PackageIcon>
+        <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
+        <RepositoryType>GitHub</RepositoryType>
+        <PackageTags>API Requests AMQP RabbitMQ Queues Exhanges</PackageTags>
+        <PackageReleaseNotes>- Add publishing via queues and routung keys at 1 time.</PackageReleaseNotes>
+        <AssemblyVersion>1.1.2.0</AssemblyVersion>
+        <FileVersion>1.1.2.0</FileVersion>
+        <TargetFrameworks>net472;net48;net6.0;netcoreapp3.1;netstandard2.0;netstandard2.1</TargetFrameworks>
+        <Version>1.1.2</Version>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DocumentationFile>bin\Release\ApiRequests.Amqp.xml</DocumentationFile>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="api-interface.png" Pack="true" PackagePath="" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="ApiRequests" Version="1.0.2" />
+      <PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
+    </ItemGroup>
+
+</Project>

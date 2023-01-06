@@ -1,4 +1,4 @@
-namespace ApiRequests.Http
+namespace ApiRequests.Configuration
 {
     public enum ServerEnvironment
     {
@@ -6,5 +6,5 @@ namespace ApiRequests.Http
         Stage,
         Development,
         Production,
-    }
+    }   
 }

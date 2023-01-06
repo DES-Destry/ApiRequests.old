@@ -1,6 +1,6 @@
 ﻿using System;
+using ApiRequests.Configuration;
 using ApiRequests.Http.Addons;
-using ApiRequests.Http.Configuration;
 using ApiRequests.Http.Controller;
 using Microsoft.Extensions.DependencyInjection;
 

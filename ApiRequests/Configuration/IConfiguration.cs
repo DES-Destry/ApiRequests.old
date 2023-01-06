@@ -1,7 +1,7 @@
-namespace ApiRequests.Http.Configuration
+namespace ApiRequests.Configuration
 {
     public interface IConfiguration
     {
         string BaseUrl { get; }
-    }
+    }   
 }

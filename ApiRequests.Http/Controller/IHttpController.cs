@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ApiRequests.Http.Configuration;
+using ApiRequests.Configuration;
 
 namespace ApiRequests.Http.Controller
 {
