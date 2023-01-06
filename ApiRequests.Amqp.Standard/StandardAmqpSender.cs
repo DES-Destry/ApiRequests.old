@@ -67,15 +67,20 @@ namespace ApiRequests.Amqp.Standard
         {
             return new
             {
-                id = Guid.NewGuid().ToString(),
-                pattern = routingKey,
-                data = message,
+                Id = Guid.NewGuid().ToString(),
+                Pattern = routingKey,
+                Data = message,
             };
         }
 
         private ReadOnlyMemory<byte> BuildBody(object message)
         {
-            var jsonMessage = JsonSerializer.Serialize(message ?? "null");
+            var jsonOptions = new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            };
+
+            var jsonMessage = JsonSerializer.Serialize(message ?? "null", jsonOptions);
             return Encoding.UTF8.GetBytes(jsonMessage);
         }
     }   

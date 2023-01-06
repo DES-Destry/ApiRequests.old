@@ -13,10 +13,10 @@
         <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>API Requests AMQP RabbitMQ Queues Exhanges</PackageTags>
-        <PackageReleaseNotes>- Fix payload for routung send.</PackageReleaseNotes>
-        <AssemblyVersion>1.1.3.0</AssemblyVersion>
-        <FileVersion>1.1.3.0</FileVersion>
-        <Version>1.1.3</Version>
+        <PackageReleaseNotes>- Convert object to text json with camelCase fields.</PackageReleaseNotes>
+        <AssemblyVersion>1.1.4.0</AssemblyVersion>
+        <FileVersion>1.1.4.0</FileVersion>
+        <Version>1.1.4</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
