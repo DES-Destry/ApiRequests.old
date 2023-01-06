@@ -53,6 +53,10 @@
         <Project>{ba7d499c-4009-4015-b1b9-d1126309fbbb}</Project>
         <Name>ApiRequests.Http</Name>
       </ProjectReference>
+      <ProjectReference Include="..\ApiRequests\ApiRequests.csproj">
+        <Project>{3c807590-5acb-49cc-a019-b13e36330551}</Project>
+        <Name>ApiRequests</Name>
+      </ProjectReference>
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
