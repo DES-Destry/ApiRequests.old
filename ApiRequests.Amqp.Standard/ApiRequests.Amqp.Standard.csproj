@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <TargetFrameworks>net6.0;netcoreapp3.1</TargetFrameworks>
+        <Title>Standard classes for AMQP requests</Title>
+        <Authors>Destry.Unimaster</Authors>
+        <Description>Implementations of base classes and interfaces to build requests to external APIs faster via AMQP.</Description>
+        <Copyright>2023</Copyright>
+        <PackageLicenseUrl>MIT</PackageLicenseUrl>
+        <PackageIcon>api-interface.png</PackageIcon>
+        <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
+        <RepositoryType>GitHub</RepositoryType>
+        <PackageTags>API Requests AMQP RabbitMQ Queues Exhanges</PackageTags>
+        <PackageReleaseNotes>- Convert object to text json with camelCase fields.</PackageReleaseNotes>
+        <AssemblyVersion>1.1.4.0</AssemblyVersion>
+        <FileVersion>1.1.4.0</FileVersion>
+        <Version>1.1.4</Version>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DocumentationFile>bin\Release\ApiRequests.Amqp.xml</DocumentationFile>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="api-interface.png" Pack="true" PackagePath="" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="ApiRequests.Amqp" Version="1.1.2" />
+    </ItemGroup>
+
+</Project>

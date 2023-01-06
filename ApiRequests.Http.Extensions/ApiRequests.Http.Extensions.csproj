@@ -14,11 +14,10 @@
         <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>API Requests Http DI Extensions ASP.NET</PackageTags>
-        <PackageReleaseNotes>- Add controller builder injecting.
-- Add controller type selecting via second generic parameter.</PackageReleaseNotes>
-        <PackageVersion>1.2.0</PackageVersion>
-        <AssemblyVersion>1.2.0.0</AssemblyVersion>
-        <FileVersion>1.2.0.0</FileVersion>
+        <PackageReleaseNotes>- Update package dependecies.</PackageReleaseNotes>
+        <PackageVersion>1.2.2</PackageVersion>
+        <AssemblyVersion>1.2.2.0</AssemblyVersion>
+        <FileVersion>1.2.2.0</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -27,7 +26,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="ApiRequests.Http" Version="1.0.0" />
+      <PackageReference Include="ApiRequests.Http" Version="1.0.2" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     </ItemGroup>
 
