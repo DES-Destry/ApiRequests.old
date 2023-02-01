@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ApiRequests.Configuration;
@@ -21,6 +22,8 @@ namespace ApiRequests.Http.Controller
         void SetBody(object body);
 
         void SetEnvironment(ServerEnvironment environment);
+        [Obsolete("Better to use SetEnvironment method to configure request sending")]
+        void SetCustomConfiguration(IConfiguration configuration);
 
         Task<TO> Get<TO, TE>(string resource);
         Task<TO> Post<TO, TE>(string resource);
