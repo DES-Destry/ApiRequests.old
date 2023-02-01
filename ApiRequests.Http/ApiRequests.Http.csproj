@@ -10,7 +10,7 @@
         <FileVersion>1.0.3.0</FileVersion>
         <Title>Http implementation of ApiRequests</Title>
         <Description>Base classes and interfaces to build requests via HTTP to external APIs faster.</Description>
-        <Copyright>2022</Copyright>
+        <Copyright>2023</Copyright>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
