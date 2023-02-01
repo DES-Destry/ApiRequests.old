@@ -14,6 +14,7 @@ namespace ApiRequests.Http.Controller
         IHttpControllerBuilder<TConf> SetAccessToken(string accessToken);
 
         IHttpControllerBuilder<TConf> SetEnvironment(ServerEnvironment environment);
+        IHttpControllerBuilder<TConf> SetCustomConfiguration(IConfiguration configuration);
 
         IHttpController<TConf> Build();
     }
