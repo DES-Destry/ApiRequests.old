@@ -11,7 +11,7 @@ using ApiRequests.Http.Controller;
 
 namespace ApiRequests.Http.Standard
 {
-    public abstract class StandardHttpController<TConf> : IHttpController<TConf> where TConf : IConfiguration
+    public abstract class StandardHttpController<TConf> : IHttpController<TConf> where TConf : class, IConfiguration
     {
         private readonly HttpClient _client;
         
@@ -99,6 +99,11 @@ namespace ApiRequests.Http.Standard
         }
 
         public abstract void SetEnvironment(ServerEnvironment environment);
+
+        public void SetCustomConfiguration(IConfiguration configuration)
+        {
+            if (configuration is TConf tConf) Configuration = tConf;
+        }
 
         public async Task<TO> Get<TO, TE>(string resource) => await HttpRequest<TO, TE>(resource, HttpMethod.Get);
 
