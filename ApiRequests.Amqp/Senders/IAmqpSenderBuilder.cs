@@ -9,6 +9,7 @@ namespace ApiRequests.Amqp.Senders
         IAmqpSenderBuilder<TConf> SetExchange(string exchange);
         IAmqpSenderBuilder<TConf> SetProperties(IBasicProperties properties);
         IAmqpSenderBuilder<TConf> SetEnvironment(ServerEnvironment environment);
+        void SetCustomConfiguration(IAmqpConfiguration configuration);
 
         IAmqpSender<TConf> Build();
     }   
