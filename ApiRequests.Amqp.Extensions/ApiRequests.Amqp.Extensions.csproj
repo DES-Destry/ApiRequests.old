@@ -7,16 +7,16 @@
         <Title>ApiRequests.Amqp Dependency Injection</Title>
         <Authors>Destry.Unimaster</Authors>
         <Description>Dependency Injection for basic AMQP controllers to use in ASP.NET projects.</Description>
-        <Copyright>2022</Copyright>
+        <Copyright>2023</Copyright>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <PackageIcon>api-interface.png</PackageIcon>
         <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>API Requests AMQP RabbitMQ DI Extensions ASP.NET</PackageTags>
         <PackageReleaseNotes>- Update dependencies.</PackageReleaseNotes>
-        <AssemblyVersion>1.0.4.0</AssemblyVersion>
-        <FileVersion>1.0.4.0</FileVersion>
-        <Version>1.0.4</Version>
+        <AssemblyVersion>1.0.5.0</AssemblyVersion>
+        <FileVersion>1.0.5.0</FileVersion>
+        <Version>1.0.5</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -33,7 +33,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="ApiRequests.Amqp" Version="1.1.2" />
+      <PackageReference Include="ApiRequests.Amqp" Version="1.1.4" />
     </ItemGroup>
 
 </Project>
