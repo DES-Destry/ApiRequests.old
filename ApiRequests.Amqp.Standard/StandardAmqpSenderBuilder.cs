@@ -27,6 +27,12 @@ namespace ApiRequests.Amqp.Standard
             return this;
         }
 
+        public IAmqpSenderBuilder<TConf> SetCustomConfiguration(IAmqpConfiguration configuration)
+        {
+            if (configuration is TConf tConf) Sender.SetCustomConfiguration(tConf);
+            return this;
+        }
+
 
         public IAmqpSender<TConf> Build() => Sender;
     }   
