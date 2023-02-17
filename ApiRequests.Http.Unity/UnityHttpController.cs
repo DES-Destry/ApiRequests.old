@@ -96,6 +96,10 @@ namespace ApiRequests.Http.Unity
         }
 
         public abstract void SetEnvironment(ServerEnvironment environment);
+        public void SetCustomConfiguration(IConfiguration configuration)
+        {
+            if (configuration is TConf tConf) Configuration = tConf;
+        }
 
         public async Task<TO> Get<TO, TE>(string resource)
         {
