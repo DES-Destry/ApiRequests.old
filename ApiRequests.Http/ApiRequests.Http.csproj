@@ -6,17 +6,17 @@
         <TargetFrameworks>net45;net472;net48;net6.0;netcoreapp3.1;netstandard2.0;netstandard2.1</TargetFrameworks>
         <PackageIcon>api-interface.png</PackageIcon>
         <Company>Destry.Unimaster</Company>
-        <AssemblyVersion>1.0.2.0</AssemblyVersion>
-        <FileVersion>1.0.2.0</FileVersion>
+        <AssemblyVersion>1.0.4.0</AssemblyVersion>
+        <FileVersion>1.0.4.0</FileVersion>
         <Title>Http implementation of ApiRequests</Title>
         <Description>Base classes and interfaces to build requests via HTTP to external APIs faster.</Description>
-        <Copyright>2022</Copyright>
+        <Copyright>2023</Copyright>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>API Requests Http</PackageTags>
-        <PackageReleaseNotes>- Use base ApiRequests library.</PackageReleaseNotes>
-        <PackageVersion>1.0.2</PackageVersion>
+        <PackageReleaseNotes>- Add custom configuration setting independ on environment and configuration store also in HttpControllerBuilder.</PackageReleaseNotes>
+        <PackageVersion>1.0.4</PackageVersion>
         <Authors>Destry.Unimaster</Authors>
     </PropertyGroup>
 

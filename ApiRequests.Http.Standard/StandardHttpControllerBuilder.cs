@@ -4,17 +4,19 @@ using ApiRequests.Http.Controller;
 
 namespace ApiRequests.Http.Standard
 {
-    public class StandardHttpControllerBuilder<TConf> : IHttpControllerBuilder<TConf> where TConf : IConfiguration
+    public class StandardHttpControllerBuilder<TConf> : IHttpControllerBuilder<TConf>
+        where TConf : class, IConfiguration
     {
         protected StandardHttpController<TConf> Controller;
-        
+
         public IHttpControllerBuilder<TConf> AddQueryParameter(string key, string value)
         {
             Controller.AddQueryParameter(key, value);
             return this;
         }
 
-        public IHttpControllerBuilder<TConf> AddQueryParameters(IEnumerable<KeyValuePair<string, string>> queryParameters)
+        public IHttpControllerBuilder<TConf> AddQueryParameters(
+            IEnumerable<KeyValuePair<string, string>> queryParameters)
         {
             Controller.AddQueryParameters(queryParameters);
             return this;
@@ -49,11 +51,18 @@ namespace ApiRequests.Http.Standard
             Controller.SetAccessToken(accessToken);
             return this;
         }
-        
+
 
         public IHttpControllerBuilder<TConf> SetEnvironment(ServerEnvironment environment)
         {
             Controller.SetEnvironment(environment);
+            return this;
+        }
+
+        public IHttpControllerBuilder<TConf> SetCustomConfiguration(IConfiguration configuration)
+        {
+            if (configuration is TConf tConf) Controller.SetCustomConfiguration(tConf);
+
             return this;
         }
 

@@ -42,6 +42,11 @@ namespace ApiRequests.Amqp.Standard
 
         public abstract void SetEnvironment(ServerEnvironment environment);
 
+        public void SetCustomConfiguration(IAmqpConfiguration configuration)
+        {
+            if (configuration is TConf tConf) Configuration = tConf;
+        }
+
 
         public void Publish(string queue)
         {

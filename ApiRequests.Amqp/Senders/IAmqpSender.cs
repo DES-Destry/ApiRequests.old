@@ -20,6 +20,8 @@ namespace ApiRequests.Amqp.Senders
     
         void SetEnvironment(ServerEnvironment environment);
 
+        void SetCustomConfiguration(IAmqpConfiguration configuration);
+
         void Publish(string queue);
         void Publish(string queue, string routingKey);
     }   

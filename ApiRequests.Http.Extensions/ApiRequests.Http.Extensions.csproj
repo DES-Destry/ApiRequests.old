@@ -8,14 +8,14 @@
         <Title>ApiRequests.Http Dependency Injection</Title>
         <Authors>Destry.Unimaster</Authors>
         <Description>Dependency Injection for basic HTTP controllers to use in ASP.NET projects.</Description>
-        <Copyright>2022</Copyright>
+        <Copyright>2023</Copyright>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <PackageIcon>api-interface.png</PackageIcon>
         <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>API Requests Http DI Extensions ASP.NET</PackageTags>
         <PackageReleaseNotes>- Update package dependecies.</PackageReleaseNotes>
-        <PackageVersion>1.2.2</PackageVersion>
+        <PackageVersion>1.2.3</PackageVersion>
         <AssemblyVersion>1.2.2.0</AssemblyVersion>
         <FileVersion>1.2.2.0</FileVersion>
     </PropertyGroup>
@@ -26,7 +26,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="ApiRequests.Http" Version="1.0.2" />
+      <PackageReference Include="ApiRequests.Http" Version="1.0.4" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     </ItemGroup>
 
