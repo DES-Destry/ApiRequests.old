@@ -57,6 +57,12 @@ namespace ApiRequests.Http.Unity
             return this;
         }
 
+        public IHttpControllerBuilder<TConf> SetCustomConfiguration(IConfiguration configuration)
+        {
+            if (configuration is TConf tConf) Controller.SetCustomConfiguration(configuration);
+            return this;
+        }
+
         public IHttpController<TConf> Build()
         {
             return Controller;
