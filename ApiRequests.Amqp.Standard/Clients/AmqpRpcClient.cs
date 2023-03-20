@@ -29,7 +29,7 @@ namespace ApiRequests.Amqp.Standard.Clients
             var consumer = new EventingBasicConsumer(_channel);
             consumer.Received += OnMessageReceived;
 
-            _channel.BasicConsume(consumer, _props.ReplyTo ?? "ApiRequests.Amqp.Standard_reply-to", autoAck: false);
+            _channel.BasicConsume(consumer, _props.ReplyTo ?? "ApiRequests.Amqp.Standard_reply-to", autoAck: true);
         }
 
         public Task<string> CallAsync(ReadOnlyMemory<byte> body)
@@ -52,27 +52,13 @@ namespace ApiRequests.Amqp.Standard.Clients
 
         private void OnMessageReceived(object sender, BasicDeliverEventArgs args)
         {
-            try
-            {
-                if (!_callbackMapper.TryRemove(args.BasicProperties.CorrelationId, out var tcs))
-                {
-                    _channel.BasicNack(args.DeliveryTag, multiple: false, requeue: true);
-                    return;
-                }
+            if (!_callbackMapper.TryRemove(args.BasicProperties.CorrelationId, out var tcs))
+                return;
 
-                var body = args.Body.ToArray();
-                var response = Encoding.UTF8.GetString(body);
+            var body = args.Body.ToArray();
+            var response = Encoding.UTF8.GetString(body);
 
-                if (tcs.TrySetResult(response))
-                    _channel.BasicAck(args.DeliveryTag, multiple: false);
-                else
-                    _channel.BasicNack(args.DeliveryTag, multiple: false, requeue: true);
-            }
-            catch
-            {
-                _channel.BasicNack(args.DeliveryTag, multiple: false, requeue: true);
-                throw;
-            }
+            tcs.TrySetResult(response);
         }
     }
 }
