@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using ApiRequests.Amqp.Configuration;
 using ApiRequests.Configuration;
 using RabbitMQ.Client;
@@ -14,6 +15,7 @@ namespace ApiRequests.Amqp.Senders
         void SetProperties(IBasicProperties properties);
         void AddMessage(object message);
         void AddMessageRange(IEnumerable<object> message);
+        void SetMessage(object message);
         void SetMessages(IEnumerable<object> messages);
         void RemoveMessage(Func<object, bool> removalCondition);
         void ClearMessages();
@@ -24,5 +26,8 @@ namespace ApiRequests.Amqp.Senders
 
         void Publish(string queue);
         void Publish(string queue, string routingKey);
+        
+        Task<T> Request<T>(string queue);
+        Task<T> Request<T>(string queue, string routingKey);
     }   
 }
