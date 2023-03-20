@@ -24,12 +24,12 @@ namespace ApiRequests.Amqp.Standard.Clients
             _channel = _connection.CreateModel();
             _exchange = exchange;
             _queue = queue;
-            _props = props;
+            _props = props ?? _channel.CreateBasicProperties();
 
             var consumer = new EventingBasicConsumer(_channel);
             consumer.Received += OnMessageReceived;
 
-            _channel.BasicConsume(consumer, _queue, autoAck: false);
+            _channel.BasicConsume(consumer, _props.ReplyTo ?? "ApiRequests.Amqp.Standard_reply-to", autoAck: false);
         }
 
         public Task<string> CallAsync(ReadOnlyMemory<byte> body)

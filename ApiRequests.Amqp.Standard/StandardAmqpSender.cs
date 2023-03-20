@@ -73,7 +73,7 @@ namespace ApiRequests.Amqp.Standard
         
         public async Task<T> Request<T>(string queue)
         {
-            using var client = new AmqpRpcClient(AmqpConnectionFactory, Configuration.BasicProperties, queue, Exchange);
+            using var client = new AmqpRpcClient(AmqpConnectionFactory, Configuration?.BasicProperties, queue, Exchange);
 
             if (Messages.Count <= 0)
                 throw new ArgumentException("Call .SetMessage(object) method to set message to send!");
@@ -86,7 +86,7 @@ namespace ApiRequests.Amqp.Standard
         
         public async Task<T> Request<T>(string queue, string routingKey)
         {
-            using var client = new AmqpRpcClient(AmqpConnectionFactory, Configuration.BasicProperties, queue, Exchange);
+            using var client = new AmqpRpcClient(AmqpConnectionFactory, Configuration?.BasicProperties, queue, Exchange);
 
             if (Messages.Count <= 0)
                 throw new ArgumentException("Call .SetMessage(object) method to set message to send!");
