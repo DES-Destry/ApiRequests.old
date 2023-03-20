@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
+using System.Threading.Tasks;
 using ApiRequests.Amqp.Configuration;
 using ApiRequests.Amqp.Senders;
+using ApiRequests.Amqp.Standard.Clients;
 using ApiRequests.Configuration;
 using RabbitMQ.Client;
 
@@ -33,6 +35,7 @@ namespace ApiRequests.Amqp.Standard
         
         public void AddMessage(object message) => Messages.Add(message);
         public void AddMessageRange(IEnumerable<object> messages) => Messages.AddRange(messages);
+        public void SetMessage(object message) => Messages = new List<object> {message};
         public void SetMessages(IEnumerable<object> messages) => Messages = messages.ToList();
         public void RemoveMessage(Func<object, bool> removalCondition)
         {
@@ -67,9 +70,36 @@ namespace ApiRequests.Amqp.Standard
                          .Select(BuildBody))
                 amqpChannel.BasicPublish(Exchange, queue, basicProperties: Properties, body: body);
         }
-
-        private object BuildRoutingMessage(object message, string routingKey)
+        
+        public async Task<T> Request<T>(string queue)
         {
+            using var client = new AmqpRpcClient(AmqpConnectionFactory, Configuration.BasicProperties, queue, Exchange);
+
+            if (Messages.Count <= 0)
+                throw new ArgumentException("Call .SetMessage(object) method to set message to send!");
+
+            var body = BuildBody(Messages[0]);
+            var reply = await client.CallAsync(body);
+
+            return JsonSerializer.Deserialize<T>(reply);
+        }
+        
+        public async Task<T> Request<T>(string queue, string routingKey)
+        {
+            using var client = new AmqpRpcClient(AmqpConnectionFactory, Configuration.BasicProperties, queue, Exchange);
+
+            if (Messages.Count <= 0)
+                throw new ArgumentException("Call .SetMessage(object) method to set message to send!");
+
+            var body = BuildBody(BuildRoutingMessage(Messages[0], routingKey));
+            var reply = await client.CallAsync(body);
+
+            return JsonSerializer.Deserialize<T>(reply);
+        }
+        
+        private static object BuildRoutingMessage(object message, string routingKey)
+        {
+            // Nest.js specific message template
             return new
             {
                 Id = Guid.NewGuid().ToString(),
@@ -78,7 +108,7 @@ namespace ApiRequests.Amqp.Standard
             };
         }
 
-        private ReadOnlyMemory<byte> BuildBody(object message)
+        private static ReadOnlyMemory<byte> BuildBody(object message)
         {
             var jsonOptions = new JsonSerializerOptions()
             {

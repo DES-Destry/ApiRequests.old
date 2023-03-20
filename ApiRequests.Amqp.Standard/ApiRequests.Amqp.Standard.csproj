@@ -13,10 +13,10 @@
         <RepositoryUrl>https://github.com/DES-Destry/ApiRequests.git</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
         <PackageTags>API Requests AMQP RabbitMQ Queues Exhanges</PackageTags>
-        <PackageReleaseNotes>- Convert object to text json with camelCase fields.</PackageReleaseNotes>
-        <AssemblyVersion>1.1.5.0</AssemblyVersion>
-        <FileVersion>1.1.5.0</FileVersion>
-        <Version>1.1.5</Version>
+        <PackageReleaseNotes>- Add request methods that send messages and return data from reply messages.</PackageReleaseNotes>
+        <AssemblyVersion>1.2.0.0</AssemblyVersion>
+        <FileVersion>1.2.0.0</FileVersion>
+        <Version>1.2.0</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -29,7 +29,7 @@
     </ItemGroup>
     
     <ItemGroup>
-      <PackageReference Include="ApiRequests.Amqp" Version="1.1.4" />
+      <PackageReference Include="ApiRequests.Amqp" Version="1.2.0" />
     </ItemGroup>
 
 </Project>
