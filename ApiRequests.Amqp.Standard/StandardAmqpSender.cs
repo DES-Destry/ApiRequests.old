@@ -74,12 +74,13 @@ namespace ApiRequests.Amqp.Standard
         public async Task<T> Request<T>(string queue)
         {
             using var client = new AmqpRpcClient(AmqpConnectionFactory, Configuration?.BasicProperties, queue, Exchange);
+            var correlationId = Guid.NewGuid().ToString();
 
             if (Messages.Count <= 0)
                 throw new ArgumentException("Call .SetMessage(object) method to set message to send!");
 
             var body = BuildBody(Messages[0]);
-            var reply = await client.CallAsync(body);
+            var reply = await client.CallAsync(correlationId, body);
 
             return JsonSerializer.Deserialize<T>(reply);
         }
@@ -87,12 +88,13 @@ namespace ApiRequests.Amqp.Standard
         public async Task<T> Request<T>(string queue, string routingKey)
         {
             using var client = new AmqpRpcClient(AmqpConnectionFactory, Configuration?.BasicProperties, queue, Exchange);
+            var correlationId = Guid.NewGuid().ToString();
 
             if (Messages.Count <= 0)
                 throw new ArgumentException("Call .SetMessage(object) method to set message to send!");
 
-            var body = BuildBody(BuildRoutingMessage(Messages[0], routingKey));
-            var reply = await client.CallAsync(body);
+            var body = BuildBody(BuildRoutingMessage(correlationId, Messages[0], routingKey));
+            var reply = await client.CallAsync(correlationId, body);
 
             return JsonSerializer.Deserialize<T>(reply);
         }
@@ -103,6 +105,17 @@ namespace ApiRequests.Amqp.Standard
             return new
             {
                 Id = Guid.NewGuid().ToString(),
+                Pattern = routingKey,
+                Data = message,
+            };
+        }
+        
+        private static object BuildRoutingMessage(string correlationId, object message, string routingKey)
+        {
+            // Nest.js specific message template
+            return new
+            {
+                Id = correlationId,
                 Pattern = routingKey,
                 Data = message,
             };

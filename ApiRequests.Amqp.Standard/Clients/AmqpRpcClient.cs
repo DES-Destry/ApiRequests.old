@@ -32,9 +32,8 @@ namespace ApiRequests.Amqp.Standard.Clients
             _channel.BasicConsume(consumer, _props.ReplyTo ?? "ApiRequests.Amqp.Standard_reply-to", autoAck: true);
         }
 
-        public Task<string> CallAsync(ReadOnlyMemory<byte> body)
+        public Task<string> CallAsync(string correlationId, ReadOnlyMemory<byte> body)
         {
-            var correlationId = Guid.NewGuid().ToString();
             _props.CorrelationId = correlationId;
 
             var tsc = new TaskCompletionSource<string>();
