@@ -52,15 +52,26 @@ namespace ApiRequests.Amqp.Standard.Clients
 
         private void OnMessageReceived(object sender, BasicDeliverEventArgs args)
         {
-            if (!_callbackMapper.TryRemove(args.BasicProperties.CorrelationId, out var tcs))
-                return;
-
-            var body = args.Body.ToArray();
-            var response = Encoding.UTF8.GetString(body);
-
-            if (tcs.TrySetResult(response))
+            try
             {
-                _channel.BasicAck(args.DeliveryTag, multiple: false);
+                if (!_callbackMapper.TryRemove(args.BasicProperties.CorrelationId, out var tcs))
+                {
+                    _channel.BasicNack(args.DeliveryTag, multiple: false, requeue: true);
+                    return;
+                }
+
+                var body = args.Body.ToArray();
+                var response = Encoding.UTF8.GetString(body);
+
+                if (tcs.TrySetResult(response))
+                    _channel.BasicAck(args.DeliveryTag, multiple: false);
+                else
+                    _channel.BasicNack(args.DeliveryTag, multiple: false, requeue: true);
+            }
+            catch
+            {
+                _channel.BasicNack(args.DeliveryTag, multiple: false, requeue: true);
+                throw;
             }
         }
     }
