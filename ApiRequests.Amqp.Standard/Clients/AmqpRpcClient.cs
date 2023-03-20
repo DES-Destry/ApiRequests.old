@@ -57,7 +57,7 @@ namespace ApiRequests.Amqp.Standard.Clients
             var body = args.Body.ToArray();
             var response = Encoding.UTF8.GetString(body);
 
-            tcs.TrySetResult(response);
+            tcs.SetResult(response);
         }
     }
 }
