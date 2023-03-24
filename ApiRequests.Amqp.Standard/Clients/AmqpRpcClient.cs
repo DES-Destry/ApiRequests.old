@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Concurrent;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -32,7 +33,8 @@ namespace ApiRequests.Amqp.Standard.Clients
             _channel.BasicConsume(consumer, _props.ReplyTo ?? "ApiRequests.Amqp.Standard_reply-to", autoAck: true);
         }
 
-        public Task<string> CallAsync(string correlationId, ReadOnlyMemory<byte> body)
+        public Task<string> CallAsync(string correlationId, ReadOnlyMemory<byte> body,
+            CancellationToken cancellationToken = default)
         {
             _props.CorrelationId = correlationId;
 
@@ -40,10 +42,12 @@ namespace ApiRequests.Amqp.Standard.Clients
             _callbackMapper.TryAdd(correlationId, tsc);
 
             _channel.BasicPublish(_exchange, _queue, _props, body);
+            
+            cancellationToken.Register(() => _callbackMapper.TryRemove(correlationId, out _));
 
             return tsc.Task;
         }
-        
+
         public void Dispose()
         {
             _connection.Close();
@@ -57,7 +61,8 @@ namespace ApiRequests.Amqp.Standard.Clients
             var body = args.Body.ToArray();
             var response = Encoding.UTF8.GetString(body);
 
-            tcs.SetResult(response);
+            var result = tcs.TrySetResult(response);
+            var testResult = result.ToString(); // TODO: remove if this will work
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ApiRequests.Amqp.Configuration;
 using ApiRequests.Amqp.Senders;
 using ApiRequests.Amqp.Standard.Clients;
+using ApiRequests.Amqp.Standard.Dto;
 using ApiRequests.Configuration;
 using RabbitMQ.Client;
 
@@ -82,7 +83,9 @@ namespace ApiRequests.Amqp.Standard
             var body = BuildBody(Messages[0]);
             var reply = await client.CallAsync(correlationId, body);
 
-            return JsonSerializer.Deserialize<T>(reply);
+            var rabbitResponse = JsonSerializer.Deserialize<RabbitResponseDto<T>>(reply);
+
+            return rabbitResponse.Response.Data;
         }
         
         public async Task<T> Request<T>(string queue, string routingKey)
@@ -96,7 +99,9 @@ namespace ApiRequests.Amqp.Standard
             var body = BuildBody(BuildRoutingMessage(correlationId, Messages[0], routingKey));
             var reply = await client.CallAsync(correlationId, body);
 
-            return JsonSerializer.Deserialize<T>(reply);
+            var rabbitResponse = JsonSerializer.Deserialize<RabbitResponseDto<T>>(reply);
+
+            return rabbitResponse.Response.Data;
         }
         
         private static object BuildRoutingMessage(object message, string routingKey)
