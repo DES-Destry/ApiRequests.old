@@ -17,9 +17,9 @@
 - Fix reply query consuming.
 - Enable auto ack.
 - Fix correlation Id providing for Nest.js specific rmq message.</PackageReleaseNotes>
-        <AssemblyVersion>1.2.7.0</AssemblyVersion>
-        <FileVersion>1.2.7.0</FileVersion>
-        <Version>1.2.7</Version>
+        <AssemblyVersion>1.2.8.0</AssemblyVersion>
+        <FileVersion>1.2.8.0</FileVersion>
+        <Version>1.2.8</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">

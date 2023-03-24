@@ -81,7 +81,7 @@ namespace ApiRequests.Amqp.Standard
                 throw new ArgumentException("Call .SetMessage(object) method to set message to send!");
 
             var body = BuildBody(Messages[0]);
-            var reply = await client.CallAsync(correlationId, body);
+            var reply = await client.CallAsync(correlationId, body).ConfigureAwait(false);
 
             var rabbitResponse = JsonSerializer.Deserialize<RabbitResponseDto<T>>(reply);
 
@@ -97,7 +97,7 @@ namespace ApiRequests.Amqp.Standard
                 throw new ArgumentException("Call .SetMessage(object) method to set message to send!");
 
             var body = BuildBody(BuildRoutingMessage(correlationId, Messages[0], routingKey));
-            var reply = await client.CallAsync(correlationId, body);
+            var reply = await client.CallAsync(correlationId, body).ConfigureAwait(false);
 
             var rabbitResponse = JsonSerializer.Deserialize<RabbitResponseDto<T>>(reply);
 
