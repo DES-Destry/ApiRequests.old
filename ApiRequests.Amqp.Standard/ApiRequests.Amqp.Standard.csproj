@@ -17,9 +17,9 @@
 - Fix reply query consuming.
 - Enable auto ack.
 - Fix correlation Id providing for Nest.js specific rmq message.</PackageReleaseNotes>
-        <AssemblyVersion>1.2.8.0</AssemblyVersion>
-        <FileVersion>1.2.8.0</FileVersion>
-        <Version>1.2.8</Version>
+        <AssemblyVersion>1.2.9.0</AssemblyVersion>
+        <FileVersion>1.2.9.0</FileVersion>
+        <Version>1.2.9</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -30,9 +30,13 @@
     <ItemGroup>
         <None Include="api-interface.png" Pack="true" PackagePath="" />
     </ItemGroup>
-    
-    <ItemGroup>
-      <PackageReference Include="ApiRequests.Amqp" Version="1.2.0" />
+
+    <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <ProjectReference Include="..\ApiRequests.Amqp\ApiRequests.Amqp.csproj" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(Configuration)' == 'Release' ">
+        <PackageReference Include="ApiRequests.Amqp" Version="1.2.0" />
     </ItemGroup>
 
 </Project>

@@ -29,8 +29,16 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="ApiRequests" Version="1.0.2" />
       <PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
+    </ItemGroup>
+
+
+    <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <ProjectReference Include="..\ApiRequests\ApiRequests.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(Configuration)' == 'Release' ">
+        <PackageReference Include="ApiRequests" Version="1.0.2" />
     </ItemGroup>
 
 </Project>

@@ -33,8 +33,12 @@
         <None Include="api-interface.png" Pack="true" PackagePath="" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="ApiRequests" Version="1.0.2" />
+    <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <ProjectReference Include="..\ApiRequests\ApiRequests.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(Configuration)' == 'Release' ">
+        <PackageReference Include="ApiRequests" Version="1.0.2" />
     </ItemGroup>
 
 </Project>

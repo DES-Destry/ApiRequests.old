@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Concurrent;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -45,7 +46,8 @@ namespace ApiRequests.Amqp.Standard.Clients
             
             cancellationToken.Register(() => _callbackMapper.TryRemove(correlationId, out _));
 
-            return tsc.Task;
+            // It's weird, but `return tsc.Task` stuck
+            return Task.Run(() => tsc.Task.GetAwaiter().GetResult(), cancellationToken);
         }
 
         public void Dispose()
@@ -60,9 +62,8 @@ namespace ApiRequests.Amqp.Standard.Clients
 
             var body = args.Body.ToArray();
             var response = Encoding.UTF8.GetString(body);
-
-            var result = tcs.TrySetResult(response);
-            var testResult = result.ToString(); // TODO: remove if this will work
+            
+            tcs.TrySetResult(response);
         }
     }
 }
