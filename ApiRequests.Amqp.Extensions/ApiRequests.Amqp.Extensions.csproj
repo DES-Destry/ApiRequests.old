@@ -32,8 +32,12 @@
         <None Include="api-interface.png" Pack="true" PackagePath="" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="ApiRequests.Amqp" Version="1.1.4" />
+    <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <ProjectReference Include="..\ApiRequests.Amqp\ApiRequests.Amqp.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(Configuration)' == 'Release' ">
+        <PackageReference Include="ApiRequests.Amqp" Version="1.1.4" />
     </ItemGroup>
 
 </Project>

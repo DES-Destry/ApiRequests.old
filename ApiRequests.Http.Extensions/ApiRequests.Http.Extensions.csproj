@@ -26,8 +26,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="ApiRequests.Http" Version="1.0.4" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <ProjectReference Include="..\ApiRequests.Http\ApiRequests.Http.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(Configuration)' == 'Release' ">
+        <PackageReference Include="ApiRequests.Http" Version="1.0.4" />
     </ItemGroup>
 
     <ItemGroup>
